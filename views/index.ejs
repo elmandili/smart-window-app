@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Window</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <form id="ipForm">
+            <label for="ipAddress"></label>
+            <input type="text" id="ipAddress" name="ipAddress" placeholder="ip adress of the window" required>
+            <button type="submit">connect</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; <%= new Date().getFullYear() %> My EJS App</p>
+    </footer>
+    <script>
+        document.getElementById('ipForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const ipAddress = document.getElementById('ipAddress').value;
+            if (ipAddress) {
+                window.location.href = `http://${ipAddress}`;
+            }
+        });
+    </script>
+</body>
+</html>
